@@ -1,0 +1,11 @@
+.title-composition{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around
+}
+
+.pokeball {
+    width: 5%;
+    height: 5%;
+}
