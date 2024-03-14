@@ -63,11 +63,25 @@ function Details() {
       {pokemon ? (
         <div className="text-white min-h-screen">
           <div className="flex flex-row items-center lg:gap-40 sm:gap-10 flex-wrap min-h-screen justify-center relative">
-            <div className="flex flex-row self-start p-5  gap-10 text-3xl cursor-pointer absolute top-1 left-1">
-            <AiOutlineClose onClick={goToHomePage}/>
-            <AiOutlineArrowLeft onClick={goToPreviousPokemon} />
-            <AiOutlineArrowRight onClick={goToNextPokemon}/>
-            </div>
+            <motion.div 
+            className="flex flex-row self-start p-5  gap-10 text-3xl absolute top-1 left-1"
+            initial={{
+              x: 50,
+              opacity: 0,
+            }}
+            animate={{
+              x: 0,
+              opacity: 1,
+            }}
+            transition={{
+              duration: 0.2,
+              ease: "linear",
+            }}
+            >
+            <AiOutlineClose className="cursor-pointer hover:scale-125 active:scale-75 transition-all" onClick={goToHomePage}/>
+            <AiOutlineArrowLeft className="cursor-pointer hover:scale-125 active:scale-75 transition-all" onClick={goToPreviousPokemon}/>
+            <AiOutlineArrowRight className="cursor-pointer hover:scale-125 active:scale-75 transition-all" onClick={goToNextPokemon}/>
+            </motion.div>
             <div className="flex flex-col items-center gap-5">
               <div className="pokemon-container flex flex-col justify-center items-center">
                 <motion.img
