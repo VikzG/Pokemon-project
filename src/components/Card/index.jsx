@@ -14,6 +14,9 @@ function Card({ id, name, sprite, onClick }) {
       <Link to={`/details/${id}`} className="card-link">
         <motion.div
           key={id}
+          whileHover={{
+            scale: 1.1
+          }}
           variants={item}
           className="drop-shadow-lg flex flex-col rounded-2xl items-center justify-center w-32 h-36 bg-blue-200 cursor-pointer"
           onClick={() => onClick(id)}

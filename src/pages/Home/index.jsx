@@ -1,16 +1,62 @@
 import Gallery from "../../components/Gallery";
 import pokeball from "../../assets/pokeball.png"
+import { motion } from 'framer-motion';
 import './style.css';
 
 function Home() {
   return (
     <section className="home flex flex-col items-center">
-      <div className="title-composition">
-      <img src={pokeball} className="pokeball" alt="pokeball"></img>
-      <h1 className="text-5xl font-bold">Pokemon Animated Pokedex</h1>
-      <img src={pokeball} className="pokeball" alt="pokeball"></img>
+      <div className="flex flex-row items-center justify-around">
+      <motion.img 
+      src={pokeball} 
+      alt="pokeball"
+      className="w-12 h-12"
+      initial={{
+        scale:0,
+      }}
+      animate={{
+        scale:1,
+      }}
+      transition={{
+        duration: 0.2,
+        delay: 0.3,
+        ease: "linear",
+      }}
+      ></motion.img>
+      <h1 className="lg:text-5xl md:text-4xl sm:text-3xl text-center font-bold">Pokemon Animated Pokedex</h1>
+      <motion.img 
+      src={pokeball} 
+      className="w-12 h-12" 
+      alt="pokeball"
+      initial={{
+        scale:0,
+      }}
+      animate={{
+        scale:1,
+      }}
+      transition={{
+        duration: 0.2,
+        delay: 0.3,
+        ease: "linear",
+      }}
+      ></motion.img>
       </div>
-      <h2 className="text-3xl font-semi-bold">Welcome to the Pokemon's world Pokedex !</h2>
+      <motion.h2 
+      className="lg:text-3xl sm:text-2xl font-semi-bold"
+      initial={{
+        x: 20,
+        opacity: 0,
+      }}
+      animate={{
+        x: 0,
+        opacity: 1,
+      }}
+      transition={{
+        duration: 0.2,
+        delay: 0.7,
+        ease: "linear",
+      }}
+      >Welcome to the Pokemon's world Pokedex !</motion.h2>
       <Gallery />
     </section>
   );

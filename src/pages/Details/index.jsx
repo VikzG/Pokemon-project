@@ -1,12 +1,30 @@
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { AiOutlineArrowRight } from "react-icons/ai";
 import axios from "axios";
 
 function Details() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [pokemon, setPokemon] = useState(null);
   const [apiTypesImages, setApiTypesImages] = useState([]);
+
+  const goToPreviousPokemon = () => {
+    const previousPokemonId = parseInt(id, 10) - 1;
+    navigate(`/details/${previousPokemonId}`);
+  };
+
+  const goToNextPokemon = () => {
+    const nextPokemonId = parseInt(id, 10) + 1;
+    navigate(`/details/${nextPokemonId}`);
+  };
+
+  const goToHomePage = () => {
+    navigate("/"); // Redirige vers l'ancre "works" de la page principale
+  };
 
   const item = {
     hidden: { y: 20, opacity: 0 },
@@ -39,10 +57,17 @@ function Details() {
   }, [id]);
 
   return (
-    <section className="pokemon-details bg-black overflow-hidden">
+    <motion.section 
+      className="pokemon-details bg-black min-h-screen overflow-hidden"
+      >
       {pokemon ? (
-        <div className="text-white flex flex-col ">
-          <div className="flex flex-row items-center gap-20 flex-wrap border-4 justify-center h-screen">
+        <div className="text-white min-h-screen">
+          <div className="flex flex-row items-center lg:gap-40 sm:gap-10 flex-wrap min-h-screen justify-center relative">
+            <div className="flex flex-row self-start p-5  gap-10 text-3xl cursor-pointer absolute top-1 left-1">
+            <AiOutlineClose onClick={goToHomePage}/>
+            <AiOutlineArrowLeft onClick={goToPreviousPokemon} />
+            <AiOutlineArrowRight onClick={goToNextPokemon}/>
+            </div>
             <div className="flex flex-col items-center gap-5">
               <div className="pokemon-container flex flex-col justify-center items-center">
                 <motion.img
@@ -225,7 +250,7 @@ function Details() {
       ) : (
         <p>Chargement des détails du Pokémon...</p>
       )}
-    </section>
+    </motion.section>
   );
 }
 
