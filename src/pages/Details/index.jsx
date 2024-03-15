@@ -1,4 +1,4 @@
-import { useParams,useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
@@ -57,30 +57,37 @@ function Details() {
   }, [id]);
 
   return (
-    <motion.section 
-      className="pokemon-details bg-black min-h-screen overflow-hidden"
-      >
+    <motion.section className="pokemon-details bg-black min-h-screen overflow-hidden">
       {pokemon ? (
         <div className="text-white min-h-screen">
           <div className="flex flex-row items-center lg:gap-40 sm:gap-10 flex-wrap min-h-screen justify-center relative">
-            <motion.div 
-            className="flex flex-row self-start p-5  gap-10 text-3xl absolute top-1 left-1"
-            initial={{
-              x: 50,
-              opacity: 0,
-            }}
-            animate={{
-              x: 0,
-              opacity: 1,
-            }}
-            transition={{
-              duration: 0.2,
-              ease: "linear",
-            }}
+            <motion.div
+              className="flex flex-row self-start p-5  gap-10 text-3xl absolute top-1 left-1"
+              initial={{
+                x: 50,
+                opacity: 0,
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+              }}
+              transition={{
+                duration: 0.2,
+                ease: "linear",
+              }}
             >
-            <AiOutlineClose className="cursor-pointer hover:scale-125 active:scale-75 transition-all" onClick={goToHomePage}/>
-            <AiOutlineArrowLeft className="cursor-pointer hover:scale-125 active:scale-75 transition-all" onClick={goToPreviousPokemon}/>
-            <AiOutlineArrowRight className="cursor-pointer hover:scale-125 active:scale-75 transition-all" onClick={goToNextPokemon}/>
+              <AiOutlineClose
+                className="cursor-pointer hover:scale-125 active:scale-75 transition-all"
+                onClick={goToHomePage}
+              />
+              <AiOutlineArrowLeft
+                className="cursor-pointer hover:scale-125 active:scale-75 transition-all"
+                onClick={goToPreviousPokemon}
+              />
+              <AiOutlineArrowRight
+                className="cursor-pointer hover:scale-125 active:scale-75 transition-all"
+                onClick={goToNextPokemon}
+              />
             </motion.div>
             <div className="flex flex-col items-center gap-5">
               <div className="pokemon-container flex flex-col justify-center items-center">

@@ -1,7 +1,6 @@
 import Gallery from "../../components/Gallery";
 import pokeball from "../../assets/pokeball.png"
 import { motion } from 'framer-motion';
-import './style.css';
 
 function Home() {
   return (
@@ -23,7 +22,7 @@ function Home() {
         ease: "linear",
       }}
       ></motion.img>
-      <h1 className="lg:text-5xl md:text-4xl sm:text-3xl text-center font-bold">Pokemon Animated Pokedex</h1>
+      <h1 className="lg:text-5xl md:text-4xl sm:text-3xl text-center font-bold">Season One Pokedex</h1>
       <motion.img 
       src={pokeball} 
       className="w-12 h-12" 
@@ -56,7 +55,7 @@ function Home() {
         delay: 0.7,
         ease: "linear",
       }}
-      >Welcome to the Pokemon's world Pokedex !</motion.h2>
+      >The 151 first pokemons</motion.h2>
       <Gallery />
     </section>
   );
